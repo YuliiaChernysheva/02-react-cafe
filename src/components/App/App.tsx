@@ -13,10 +13,18 @@ export default function App() {
     bad: 0,
   });
 
+  // const handleVote = (type: VoteType) => {
+  //   setVotes({
+  //     ...votes,
+  //     [type]: votes[type] + 1,
+  //   });
+  // };
+
   const handleVote = (type: VoteType) => {
-    const updatedVotes = { ...votes };
-    updatedVotes[type] += 1;
-    setVotes(updatedVotes);
+    setVotes((prevVotes) => ({
+      ...prevVotes,
+      [type]: prevVotes[type] + 1,
+    }));
   };
 
   const resetVotes = () => {
